@@ -1,7 +1,7 @@
 #If you're running a basic cluster using Apache cassandra,
 #this script, when executed from a server in the cluster
-#will clone the cluster configuration to another SSH enabled server,
-#repair the cluster, and add that node to the cluster
+#will install cassandra, clone the cluster configuration to another SSH enabled server,
+#repair the cluster, and add that node to the cluster (updating the cassandra.yaml listen_address as well)
 #just run ./clone_cassandra.sh and enter remote username, remote password, and remote IP to connect to
 
 #set -x
