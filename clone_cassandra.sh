@@ -32,7 +32,7 @@ sshpass -p$SERVER_PASS scp /etc/cassandra/cassandra.yaml $SERVER_USERNAME@$SERVE
 #remotely edit the cassandra.yaml
 sshpass -p$SERVER_PASS ssh -o StrictHostKeyChecking=no $SERVER_USERNAME@$SERVER_IP 'bash -s' << ENDSSH
 
-cat /etc/cassandra/cassandra.yaml.tmp | sed 's/listen_address: $LOCAL_IP/listen_address: $SERVER_IP/g' > /etc/cassandra/cassandra.yaml; echo updated; exit; 
+cat /etc/cassandra/cassandra.yaml.tmp | sed 's/listen_address: $LOCAL_IP/listen_address: $SERVER_IP/g' | sed 's/rpc_address: $LOCAL_IP/rpc_address: $SERVER_IP/g' > /etc/cassandra/cassandra.yaml; echo updated; exit; 
 
 ENDSSH
 
